@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BarberShop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="h-screen flex justify-center items-center bg-cover bg-center"
+     style="background-image: url('https://d375139ucebi94.cloudfront.net/region2/pl/150120/biz_photo/37425cb7fa384f2ca3dc9c3620a7a8-crazy-barber-lata-20-biz-photo-7692ea5337a34a5d989baada98985e-booksy.jpeg');">
+
+   <h1 class="text-7xl font-bold italic text-gray-200 ">Barber Shop</h1>
+</div>
+<h1 class="text-4xl font-bold text-gray-900  flex flex-col items-center mt-6 my-4">Dostępne usługi</h1>
+<hr>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+    <div class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white p-6 my-6" th:each="service : ${enum}">
+        <h2 class="text-xl font-bold text-gray-800" th:text="${service}"></h2>
+        <p class="text-gray-600 mt-2">Dobry barber</p>
+
+    </div>
+</div>
+
+<div  class="flex justify-center mt-6">
+    <form th:action="@{/user/home}" method="get">
+    <button type="submit" class="flex items-center gap-2 bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        Umów wizytę!
+    </button >
+        </form>
+</div>
+
+
+<div class="flex flex-col items-center mt-6 my-6">
+<h2 class="text-2xl ">Godziny otwarcia</h2>
+<h3 class="text-xl">Pon-Sb 8.00 - 16.00</h3>
+    <h4 class="text-xl">Nasz adres: ul. Lipowa 15a Białystok</h4>
+</div>
+
+<footer class="bg-orange-950 py-5">
+<p class="text-white px-2">&#174BarberShop Wszystkie prawa zastrzeżone</p>
+
+
+</footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rejestracja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center min-h-screen p-6">
+
+<div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+    <h2 class="text-3xl font-semibold text-gray-800 text-center mb-6">Rejestracja</h2>
+
+    <form th:action="@{/auth/register}" method="post" th:object="${user}" class="space-y-4">
+        <div>
+            <label class="block text-gray-700">Imię:</label>
+            <input type="text" th:field="*{firstName}" required
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 mt-1 focus:ring-2 focus:ring-amber-600 outline-none transition">
+        </div>
+
+        <div>
+            <label class="block text-gray-700">Nazwisko:</label>
+            <input type="text" th:field="*{lastName}" required
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 mt-1 focus:ring-2 focus:ring-amber-600 outline-none transition">
+        </div>
+
+        <div>
+            <label class="block text-gray-700">Email:</label>
+            <input type="email" th:field="*{email}" required
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 mt-1 focus:ring-2 focus:ring-amber-600 outline-none transition">
+        </div>
+
+        <div>
+            <label class="block text-gray-700">Hasło:</label>
+            <input type="password" th:field="*{password}" required
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 mt-1 focus:ring-2 focus:ring-amber-600 outline-none transition">
+        </div>
+
+        <button type="submit"
+                class="w-full bg-amber-600 text-white py-2 rounded-md hover:bg-amber-700 transition">
+            Zarejestruj
+        </button>
+    </form>
+
+    <p class="text-gray-700 text-center mt-4">Masz już konto?
+        <a th:href="@{/auth/login}" class="text-amber-600 hover:underline">Zaloguj się</a>
+    </p>
+</div>
+
+</body>
+</html>
